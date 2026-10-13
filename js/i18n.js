@@ -129,6 +129,11 @@ en: {
   se_exported: "Data downloaded.",
   se_about: "About Azat",
   se_privacy: "Your data never leaves your phone. Everything is stored only in this browser — no accounts, no tracking.",
+  // about page
+  m_about: "About the maker", m_about_d: "Why Azat exists",
+  about_title: "About",
+  about_story: "Hi, I'm Raphael Malikian — a diaspora-born Armenian based in Los Angeles, California.\n\nI built Azat because smoking nearly took my dad. He smoked most of his life. Then came the heart attack, the surgery, the high blood pressure.\n\nThat was the wake-up call our family needed. He quit — and I watched what happened next: his blood pressure came down, and today he's doing really well.\n\nI couldn't stop thinking about the men like him back home — nearly half of Armenian men smoke. So I built the app I wish had existed for my dad: no lectures, no shame, just honest tools grounded in real research, in the languages we actually speak. It's also designed to be discreet: everything stays on your device — no accounts, no tracking, no data ever leaving your phone.\n\nIf Azat helps even one person get their own good news, it was worth building.",
+  about_note: "A personal story — for medical guidance, please talk to your doctor.",
   // menu
   m_triggers: "Triggers", m_triggers_d: "Know them, beat them",
   m_exercises: "Exercises", m_exercises_d: "Train your willpower",
@@ -284,6 +289,11 @@ ru: {
   se_exported: "Данные скачаны.",
   se_about: "Об Azat",
   se_privacy: "Твои данные не покидают телефон. Всё хранится только в этом браузере — без аккаунтов и слежки.",
+  // about page
+  m_about: "О создателе", m_about_d: "Почему существует Azat",
+  about_title: "О приложении",
+  about_story: "Привет! Я Рафаэль Маликян — армянин из диаспоры, живу в Лос-Анджелесе, Калифорния.\n\nЯ создал Azat, потому что курение чуть не забрало моего отца. Он курил большую часть своей жизни. А потом — инфаркт, операция, высокое давление.\n\nЭто стало тем тревожным звонком, который был нужен нашей семье. Он бросил — и я видел, что было дальше: давление пришло в норму, и сегодня у него всё отлично.\n\nЯ не мог перестать думать о таких же мужчинах на родине — а курит почти половина армянских мужчин. Поэтому я сделал приложение, о котором мечтал для своего отца: без нотаций и стыда — только честные инструменты, основанные на настоящих исследованиях, на языках, на которых мы действительно говорим. Оно также создано быть незаметным: всё остаётся на твоём устройстве — без аккаунтов, без слежки, данные никогда не покидают телефон.\n\nЕсли Azat поможет хотя бы одному человеку услышать свою хорошую новость — значит, оно того стоило.",
+  about_note: "Личная история — за медицинскими рекомендациями обращайтесь к врачу.",
   m_triggers: "Триггеры", m_triggers_d: "Знай их — и побеждай",
   m_exercises: "Упражнения", m_exercises_d: "Тренируй силу воли",
   m_learn: "Факты", m_learn_d: "Факты, а не страх",
@@ -437,6 +447,11 @@ hy: {
   se_exported: "Տվյալները ներբեռնված են։",
   se_about: "Ազատի մասին",
   se_privacy: "Քո տվյալները հեռախոսիցդ դուրս չեն գալիս։ Ամեն ինչ պահվում ա մենակ այս բրաուզերում՝ առանց հաշիվների ու հետևելու։",
+  // about page
+  m_about: "Ստեղծողի մասին", m_about_d: "Ինչի համար կա Ազատը",
+  about_title: "Մասին",
+  about_story: "Բարև, ես Ռաֆայել Մալիկյանն եմ՝ սփյուռքում ծնված հայ, ապրում եմ Լոս Անջելեսում, Կալիֆոռնիա։\n\nԱզատը սարքել եմ, որովհետև ծխելը քիչ էր մնում տաներ հորս։ Նա իր կյանքի մեծ մասը ծխել ա։ Հետո եկավ սրտի կաթվածը, վիրահատությունը, բարձր ճնշումը։\n\nԴա էն ահազանգն էր, որ մեր ընտանիքին պետք էր։ Նա թողեց, ու ես տեսա, թե ինչ եղավ հետո. ճնշումն իջավ, ու այսօր նա շատ լավ ա։\n\nՉէի կարում չմտածել տանը նրա նման տղամարդկանց մասին, իսկ հայ տղամարդկանց գրեթե կեսը ծխում ա։ Դրա համար սարքեցի էն հավելվածը, որի մասին երազում էի հորս համար՝ առանց քարոզի ու ամոթի, մենակ ազնիվ գործիքներ՝ իրական հետազոտությունների վրա հիմնված, էն լեզուներով, որոնցով մենք իրականում խոսում ենք։ Ու սարքված ա աննկատ լինելու համար. ամեն ինչ մնում ա քո սարքի վրա՝ առանց հաշիվների, առանց հետևելու, տվյալները երբեք դուրս չեն գալիս հեռախոսիցդ։\n\nԵթե Ազատը թեկուզ մեկ մարդու օգնի լսել իր լավ լուրը, ուրեմն արժեր սարքել։",
+  about_note: "Անձնական պատմություն ա. բժշկական հարցերով դիմիր բժշկի։",
   m_triggers: "Առիթներ", m_triggers_d: "Ճանաչիր ու հաղթիր",
   m_exercises: "Վարժություններ", m_exercises_d: "Մարզիր կամքդ",
   m_learn: "Փաստեր", m_learn_d: "Փաստեր, ոչ թե վախ",

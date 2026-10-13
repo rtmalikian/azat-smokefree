@@ -140,6 +140,7 @@ function araratSVG(){
 /* ---------------- router ---------------- */
 const routes = {
   "home": renderHome, "plan": renderPlan, "sos": renderSOS,
+  "about": renderAbout,
   "triggers": renderTriggers, "exercises": renderExercises,
   "trophies": renderTrophies, "learn": renderLearn,
   "menu": renderMenu, "settings": renderSettings,
@@ -613,11 +614,23 @@ function renderLearn(){
   </div>`;
 }
 
+/* ---------------- ABOUT ---------------- */
+function renderAbout(){
+  const paras = t("about_story").split("\n\n");
+  view.innerHTML = `<div class="screen">
+    ${card(`<h1>👋 ${t("about_title")}</h1>
+      ${paras.map(p=>`<p>${esc(p)}</p>`).join("")}
+      <p><b>Raphael Malikian</b><br>📧 <a href="mailto:rtmalikian@gmail.com">rtmalikian@gmail.com</a></p>
+      <p class="muted small">${t("about_note")}</p>`,"hero")}
+  </div>`;
+}
+
 /* ---------------- MENU ---------------- */
 function renderMenu(){
   const items = [
     ["#/plan","🗺️","m_plan","m_plan_d"],["#/triggers","🎯","m_triggers","m_triggers_d"],
     ["#/exercises","🏋️","m_exercises","m_exercises_d"],["#/learn","📚","m_learn","m_learn_d"],
+    ["#/about","👋","m_about","m_about_d"],
     ["#/settings","⚙️","m_settings","m_settings_d"],
   ];
   if(S.lore && S.lore.length) items.push(["#/lore","✦","m_lore","m_lore_d"]);
