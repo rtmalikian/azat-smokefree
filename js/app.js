@@ -688,4 +688,32 @@ document.querySelectorAll(".lang-btn[data-lang]").forEach(b=>b.onclick=()=>setLa
 document.documentElement.lang = S.lang;
 applyLang();
 AzatNotify.init();
+
+/* Accessibility: custom radio/checkbox cards expose roles, keyboard support,
+   and checked state to assistive tech (they're divs, not native inputs). */
+function tagA11y(root){
+  const scope = root.querySelectorAll ? root : document;
+  scope.querySelectorAll(".radio-card").forEach(el=>{
+    el.setAttribute("role","radio");
+    el.setAttribute("tabindex","0");
+    el.setAttribute("aria-checked", el.classList.contains("selected") ? "true" : "false");
+  });
+  scope.querySelectorAll(".check-item").forEach(el=>{
+    el.setAttribute("role","checkbox");
+    el.setAttribute("tabindex","0");
+    el.setAttribute("aria-checked", el.classList.contains("selected") ? "true" : "false");
+  });
+}
+document.addEventListener("keydown", (e)=>{
+  const el = e.target && e.target.closest ? e.target.closest(".radio-card,.check-item") : null;
+  if(el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); el.click(); }
+});
+new MutationObserver((muts)=>{
+  for(const m of muts){
+    if(m.type === "attributes" && m.attributeName === "class") tagA11y(m.target);
+    if(m.type === "childList") m.addedNodes.forEach(n=>{ if(n.nodeType === 1) tagA11y(n); });
+  }
+}).observe(document.getElementById("view"), { childList:true, subtree:true, attributes:true, attributeFilter:["class"] });
+tagA11y(document);
+
 router();
