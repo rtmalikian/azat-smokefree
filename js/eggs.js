@@ -35,7 +35,7 @@ ark:{ icon:"🕊️", trophy:"egg_ark",
   text:{en:"Legend says that after the flood, Noah's Ark came to rest on Ararat — and the world began again. Every smoke-free morning is your own small new beginning.",
         ru:"Легенда гласит: после потопа Ноев ковчег остановился на Арарате — и мир начался заново. Каждое утро без сигарет — твоё маленькое новое начало.",
         hy:"Ավանդությունն ասում ա՝ ջրհեղեղից հետո Նոյի տապանը կանգնել ա Արարատի վրա, ու աշխարհը նորից ա սկսվել։ Ամեն առավոտ առանց ծխախոտի քո փոքր նոր սկիզբն ա։"},
-  hint:{en:"The mountain likes attention…", ru:"Гора любит внимание…", hy:"Սարը ուշադրություն ա սիրում…"} },
+  hint:{en:"Something glimmers beneath the mountain…", ru:"Что-то мерцает под горой…", hy:"Սարի տակ ինչ-որ բան փայլում ա…"} },
 vishap:{ icon:"🐉", trophy:"egg_vishap",
   title:{en:"Vahagn the Dragon-reaper", ru:"Ваагн Вишапаках", hy:"Վահագն Վիշապաքաղը"},
   text:{en:"Vahagn Vishapakagh — “the dragon-reaper” — was the old Armenian god of fire and thunder, who slew the vishaps, the dragons of the deep waters. Every craving you outlast is a small dragon slain.",
@@ -53,7 +53,7 @@ proverbs:{ icon:"🦉", trophy:"egg_proverb",
   text:{en:"Armenian village life ran on proverbs — a whole philosophy in a single line, passed from grandparent to grandchild like a recipe. Here's one for the road:",
         ru:"Армянская деревенская жизнь держалась на пословицах — целая философия в одной строке, передавалась от бабушки к внуку, как рецепт. Вот одна в дорогу:",
         hy:"Հայկական գյուղը առածներով էր ապրում՝ մի ամբողջ փիլիսոփայություն մեկ տողի մեջ, տատիկից թոռանը՝ բաղադրատոմսի պես։ Ահա մեկը ճանապարհի համար."},
-  hint:{en:"The title knows old sayings…", ru:"Заголовок знает старые пословицы…", hy:"Վերնագիրը հին ասացվածքներ գիտի…"} },
+  hint:{en:"Wisdom hides in the daily tip…", ru:"Мудрость прячется в совете дня…", hy:"Իմաստությունը թաքնված ա օրվա խորհրդի մեջ…"} },
 mashtots:{ icon:"✍️", trophy:"egg_mashtots",
   title:{en:"Mesrop Mashtots", ru:"Месроп Маштоц", hy:"Մեսրոպ Մաշտոցը"},
   text:{en:"In 405 AD, Mesrop Mashtots created the Armenian alphabet so his people could read in their own tongue. You just read the same app in three languages. Heir indeed.",
@@ -197,10 +197,10 @@ const Eggs = {
     /* tap targets (delegated — survives re-renders) */
     document.addEventListener("click", e=>{
       const q = s => e.target.closest && e.target.closest(s);
-      if(q("#egg-ararat")){
-        if(this.bump("ararat")>=7 && !S.lore.includes("ark")) this.discover("ark");
-      } else if(q("#egg-title")){
-        if(this.bump("title")%5===0) this.proverb();
+      if(q("#egg-ark-tap")){
+        if(this.bump("arktap")>=7 && !S.lore.includes("ark")) this.discover("ark");
+      } else if(q("#egg-prov-tap")){
+        if(this.bump("provtap")%5===0) this.proverb();
       } else if(q("#egg-nur")){
         this.discover("nuri");
       } else if(q("#egg-ver")){

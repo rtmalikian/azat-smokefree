@@ -122,7 +122,7 @@ function card(html, cls){ return `<div class="card${cls?" "+cls:""}">${html}</di
 function araratSVG(){
   // Smoke clears as smoke-free days grow (full clear at 30 days)
   const op = Math.max(0, 1 - daysFree()/30).toFixed(2);
-  return `<svg id="egg-ararat" viewBox="0 0 400 190" style="width:100%;height:auto;cursor:pointer" role="img" aria-label="Ararat">
+  return `<svg viewBox="0 0 400 190" style="width:100%;height:auto" role="img" aria-label="Ararat">
     <circle cx="330" cy="34" r="22" fill="#F2A800" opacity="${1-op*0.55}"/>
     <path d="M20 165 L120 55 L160 110 L205 40 L250 105 L285 75 L360 165 Z" fill="#B3001B"/>
     <path d="M120 55 L142 88 L120 100 L100 84 Z" fill="#fff" opacity=".92"/>
@@ -186,8 +186,9 @@ function renderHome(){
   }).join("");
 
   view.innerHTML = `<div class="screen">
-    ${card(`<h3 id="egg-title" style="margin-top:0;cursor:pointer;user-select:none">${t("ararat_title")}</h3>${araratSVG()}
+    ${card(`<h3 style="margin-top:0">${t("ararat_title")}</h3>${araratSVG()}
       <p class="muted small center">${df>=30 ? t("ararat_done") : t("ararat_sub")}</p>
+      <p class="center" style="margin:0"><span id="egg-ark-tap" style="cursor:pointer;opacity:.4;user-select:none;-webkit-tap-highlight-color:transparent">✦</span></p>
       <div class="center">${heroNum}</div>`, "hero")}
     <div class="stat-grid">
       <div class="stat"><div class="num">${fmt(cigsAvoided())}</div><div class="lbl">${t("d_cigs")}</div></div>
@@ -201,7 +202,7 @@ function renderHome(){
          <button class="btn btn-ghost" style="margin-top:0" id="ck-no">${t("d_no")}</button></div>`}`)}
     <div id="lapse-box"></div>
     ${plans ? card(`<h3 style="margin-top:0">📝 ${t("d_plans")}</h3>${plans}`) : ""}
-    ${card(`<h3 style="margin-top:0">💡 ${t("d_tip")}</h3><p>${esc(todayTip())}</p>`)}
+    ${card(`<h3 style="margin-top:0">💡 ${t("d_tip")} <span id="egg-prov-tap" style="cursor:pointer;opacity:.4;user-select:none;-webkit-tap-highlight-color:transparent">✦</span></h3><p>${esc(todayTip())}</p>`)}
     ${card(`<h3 style="margin-top:0">${t("d_health")}</h3>${milestonesHTML()}`)}
     ${won.length?card(`<h3 style="margin-top:0">🏆 ${t("nav_trophies")}</h3>
       <div class="trophy-grid">${won.map(trophyHTML).join("")}</div>
@@ -711,6 +712,18 @@ document.querySelectorAll(".lang-btn[data-lang]").forEach(b=>b.onclick=()=>setLa
 document.documentElement.lang = S.lang;
 applyLang();
 AzatNotify.init();
+
+/* Self-update: if the service worker finds a newer app version, reload once
+   into it. Without this, phones can sit on a stale cached copy indefinitely. */
+if("serviceWorker" in navigator){
+  const hadController = !!navigator.serviceWorker.controller;
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", ()=>{
+    if(!hadController || refreshing) return; refreshing = true;
+    toast(t("update_found")); setTimeout(()=>window.location.reload(), 1500);
+  });
+  navigator.serviceWorker.getRegistration().then(r=>{ if(r) r.update(); }).catch(()=>{});
+}
 
 /* Accessibility: custom radio/checkbox cards expose roles, keyboard support,
    and checked state to assistive tech (they're divs, not native inputs). */

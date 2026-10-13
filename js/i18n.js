@@ -134,6 +134,7 @@ en: {
   about_title: "About",
   about_story: "Hi, I'm Raphael Malikian — a diaspora-born Armenian based in Los Angeles, California.\n\nI built Azat because smoking nearly took my dad. He smoked most of his life — but he quit years ago, long before what came next.\n\nThen came the heart attack, the surgery, the high blood pressure. That was the wake-up call our family needed. He quit drinking too, cleaned up his lifestyle and diet — and I watched what happened next: his blood pressure came down to great levels, and today he's doing really well.\n\nI couldn't stop thinking about the men like him back home — nearly half of Armenian men smoke. So I built the app I wish had existed for my dad back when he smoked: no lectures, no shame, just honest tools grounded in real research, in the languages we actually speak. It's also designed to be discreet: everything stays on your device — no accounts, no tracking, no data ever leaving your phone.\n\nIf Azat helps even one person get their own good news, it was worth building.",
   about_note: "A personal story — for medical guidance, please talk to your doctor.",
+  update_found: "New version found — reloading…",
   // menu
   m_triggers: "Triggers", m_triggers_d: "Know them, beat them",
   m_exercises: "Exercises", m_exercises_d: "Train your willpower",
@@ -294,6 +295,7 @@ ru: {
   about_title: "О приложении",
   about_story: "Привет! Я Рафаэль Маликян — армянин из диаспоры, живу в Лос-Анджелесе, Калифорния.\n\nЯ создал Azat, потому что курение чуть не забрало моего отца. Он курил большую часть своей жизни — но бросил много лет назад, задолго до того, что случилось потом.\n\nА потом — инфаркт, операция, высокое давление. Это стало тем тревожным звонком, который был нужен нашей семье. Он бросил и пить, наладил образ жизни и питание — и я видел, что было дальше: давление пришло в отличную норму, и сегодня у него всё прекрасно.\n\nЯ не мог перестать думать о таких же мужчинах на родине — а курит почти половина армянских мужчин. Поэтому я сделал приложение, о котором мечтал для своего отца тогда, когда он ещё курил: без нотаций и стыда — только честные инструменты, основанные на настоящих исследованиях, на языках, на которых мы действительно говорим. Оно также создано быть незаметным: всё остаётся на твоём устройстве — без аккаунтов, без слежки, данные никогда не покидают телефон.\n\nЕсли Azat поможет хотя бы одному человеку услышать свою хорошую новость — значит, оно того стоило.",
   about_note: "Личная история — за медицинскими рекомендациями обращайтесь к врачу.",
+  update_found: "Найдена новая версия — перезагружаю…",
   m_triggers: "Триггеры", m_triggers_d: "Знай их — и побеждай",
   m_exercises: "Упражнения", m_exercises_d: "Тренируй силу воли",
   m_learn: "Факты", m_learn_d: "Факты, а не страх",
@@ -452,6 +454,7 @@ hy: {
   about_title: "Մասին",
   about_story: "Բարև, ես Ռաֆայել Մալիկյանն եմ՝ սփյուռքում ծնված հայ, ապրում եմ Լոս Անջելեսում, Կալիֆոռնիա։\n\nԱզատը սարքել եմ, որովհետև ծխելը քիչ էր մնում տաներ հորս։ Նա իր կյանքի մեծ մասը ծխել ա, բայց թողել ա տարիներ առաջ՝ շատ ավելի վաղ, քան եկավ հաջորդը։\n\nՀետո եկավ սրտի կաթվածը, վիրահատությունը, բարձր ճնշումը։ Դա էն ահազանգն էր, որ մեր ընտանիքին պետք էր։ Նա թողեց նաև խմելը, կարգի բերեց ապրելակերպն ու սնունդը, ու ես տեսա, թե ինչ եղավ հետո. ճնշումն իջավ մինչև հիանալի մակարդակ, ու այսօր նա շատ լավ ա։\n\nՉէի կարում չմտածել տանը նրա նման տղամարդկանց մասին, իսկ հայ տղամարդկանց գրեթե կեսը ծխում ա։ Դրա համար սարքեցի էն հավելվածը, որի մասին երազում էի հորս համար դեռ այն ժամանակ, երբ նա ծխում էր՝ առանց քարոզի ու ամոթի, մենակ ազնիվ գործիքներ՝ իրական հետազոտությունների վրա հիմնված, էն լեզուներով, որոնցով մենք իրականում խոսում ենք։ Ու սարքված ա աննկատ լինելու համար. ամեն ինչ մնում ա քո սարքի վրա՝ առանց հաշիվների, առանց հետևելու, տվյալները երբեք դուրս չեն գալիս հեռախոսիցդ։\n\nԵթե Ազատը թեկուզ մեկ մարդու օգնի լսել իր լավ լուրը, ուրեմն արժեր սարքել։",
   about_note: "Անձնական պատմություն ա. բժշկական հարցերով դիմիր բժշկի։",
+  update_found: "Նոր տարբերակ գտնվեց՝ վերաբեռնում եմ…",
   m_triggers: "Առիթներ", m_triggers_d: "Ճանաչիր ու հաղթիր",
   m_exercises: "Վարժություններ", m_exercises_d: "Մարզիր կամքդ",
   m_learn: "Փաստեր", m_learn_d: "Փաստեր, ոչ թե վախ",
