@@ -1,6 +1,6 @@
 /* Azat service worker: offline app shell + notification display.
    Bump CACHE on every release so phones pick up new files. */
-const CACHE = 'azat-v2';
+const CACHE = 'azat-v3';
 const ASSETS = [
   './', './index.html',
   './css/style.css',
