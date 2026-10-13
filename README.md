@@ -71,6 +71,20 @@ Notifications live behind `AzatNotify` (`js/notify.js`), so swapping in `@capaci
 
 Issues and PRs welcome. Content rules: every health claim stays cited; tone stays autonomy-supportive (no orders, no shame, no fear); Armenian stays casual Eastern.
 
+### 🗺️ Roadmap — open opportunities for contributors
+
+These aren't assignments with solutions — they're open problems, framed for anyone who wants to shape them:
+
+1. [Real Web Push backend for true background reminders](https://github.com/rtmalikian/azat-smokefree/issues/1)
+2. [Just-in-time support — nudge before the craving, not after](https://github.com/rtmalikian/azat-smokefree/issues/2)
+3. [Quit-buddy circles that actually work](https://github.com/rtmalikian/azat-smokefree/issues/3)
+4. [On-device Armenian conversational coach](https://github.com/rtmalikian/azat-smokefree/issues/4)
+5. [Bridge to real-world help in Armenia (quitline, NRT, pharmacies)](https://github.com/rtmalikian/azat-smokefree/issues/5) · good first issue
+6. ["Walk it off" — movement as a craving tool](https://github.com/rtmalikian/azat-smokefree/issues/6) · good first issue
+7. [A separate, age-appropriate track for teens](https://github.com/rtmalikian/azat-smokefree/issues/7)
+
+Comment on an issue to claim it, or open a new one with your own idea.
+
 ## 📄 License
 
 MIT — free for the people of Armenia and everyone else.
