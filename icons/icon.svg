@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#FAF6EE"/>
+  <circle cx="392" cy="120" r="52" fill="#F2A800"/>
+  <!-- Ararat: two peaks -->
+  <path d="M40 400 L170 150 L225 260 L285 110 L350 250 L390 190 L472 400 Z" fill="#B3001B"/>
+  <path d="M170 150 L205 205 L170 228 L138 200 Z" fill="#fff" opacity=".92"/>
+  <path d="M285 110 L322 168 L285 192 L250 162 Z" fill="#fff" opacity=".92"/>
+  <!-- rising bird / free -->
+  <path d="M150 330 q22 -20 44 0 q22 -20 44 0" stroke="#1D4E9E" stroke-width="14" fill="none" stroke-linecap="round"/>
+  <text x="256" y="462" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="52" fill="#23272F">ԱԶԱՏ</text>
+</svg>
