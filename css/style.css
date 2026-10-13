@@ -126,3 +126,11 @@ p{margin:.5em 0}
 .menu-item .m-ico{font-size:1.6rem} .menu-item b{display:block} .menu-item small{color:var(--muted)}
 .badge-new{background:var(--red); color:#fff; font-size:.65rem; border-radius:99px; padding:2px 8px; font-weight:800; margin-left:6px}
 @media (min-width:700px){ .trophy-grid{grid-template-columns:repeat(4,1fr)} }
+/* ---------- easter eggs ---------- */
+.egg-modal{position:fixed; inset:0; background:rgba(20,12,8,.72); z-index:200; display:flex; align-items:center; justify-content:center; padding:20px; animation:eggin .25s ease}
+.egg-card{background:var(--card); border:2px solid var(--gold); border-radius:20px; max-width:430px; width:100%; padding:28px 24px; text-align:center; box-shadow:0 16px 56px rgba(0,0,0,.45); max-height:88vh; overflow:auto}
+.egg-icon{font-size:3.2rem}
+.egg-proverb{font-size:1.25rem; font-style:italic; color:var(--gold); font-weight:700; margin:12px 0}
+.egg-trophy{margin:14px 0 18px; padding:12px; background:var(--paper); border-radius:14px}
+.trophy.secret{opacity:.6; border-style:dashed}
+@keyframes eggin{from{transform:scale(.92); opacity:0} to{transform:none; opacity:1}}

@@ -11,8 +11,8 @@ const URGE_PHASES = {
 const LS = "azat-v1";
 const DEF = () => ({
   lang:"hy", plan:null, ifthen:[], reasons:[], values:[], buddy:"",
-  why:null, cravings:0, exercises:0, checkins:{}, logged:{},
-  trophiesWon:[], createdAt:Date.now()
+  why:null, cravings:0, exercises:0, checkins:{}, logged:{}, lapses:[],
+  trophiesWon:[], lore:[], egg:{}, createdAt:Date.now()
 });
 let S = DEF();
 try { const raw = localStorage.getItem(LS); if (raw) S = Object.assign(DEF(), JSON.parse(raw)); } catch(e){}
@@ -70,6 +70,7 @@ function todayTip(){
 /* ---------------- trophies ---------------- */
 function trophyMet(tr){
   const n = tr.need;
+  if(n.type==="egg") return false; // hidden lore eggs are awarded by js/eggs.js
   if(n.type==="plan") return !!S.plan;
   if(n.type==="why") return !!(S.why && S.why.doneAt);
   if(n.type==="days") return daysFree() >= n.n;
@@ -99,6 +100,7 @@ function checkTrophies(){
     toast("🏆 "+tr.name[S.lang], "trophy");
     if(AzatNotify.isEnabled()) AzatNotify.milestone(tr.name[S.lang]+" — "+tr.desc[S.lang]);
   }}
+  if(window.Eggs) Eggs.onTrophies(); // Aragats egg: 4 trophies climbed
   return fresh;
 }
 
@@ -120,7 +122,7 @@ function card(html, cls){ return `<div class="card${cls?" "+cls:""}">${html}</di
 function araratSVG(){
   // Smoke clears as smoke-free days grow (full clear at 30 days)
   const op = Math.max(0, 1 - daysFree()/30).toFixed(2);
-  return `<svg viewBox="0 0 400 190" style="width:100%;height:auto" role="img" aria-label="Ararat">
+  return `<svg id="egg-ararat" viewBox="0 0 400 190" style="width:100%;height:auto;cursor:pointer" role="img" aria-label="Ararat">
     <circle cx="330" cy="34" r="22" fill="#F2A800" opacity="${1-op*0.55}"/>
     <path d="M20 165 L120 55 L160 110 L205 40 L250 105 L285 75 L360 165 Z" fill="#B3001B"/>
     <path d="M120 55 L142 88 L120 100 L100 84 Z" fill="#fff" opacity=".92"/>
@@ -183,7 +185,7 @@ function renderHome(){
   }).join("");
 
   view.innerHTML = `<div class="screen">
-    ${card(`<h3 style="margin-top:0">${t("ararat_title")}</h3>${araratSVG()}
+    ${card(`<h3 id="egg-title" style="margin-top:0;cursor:pointer;user-select:none">${t("ararat_title")}</h3>${araratSVG()}
       <p class="muted small center">${df>=30 ? t("ararat_done") : t("ararat_sub")}</p>
       <div class="center">${heroNum}</div>`, "hero")}
     <div class="stat-grid">
@@ -206,7 +208,7 @@ function renderHome(){
   </div>`;
 
   const yb = document.getElementById("ck-yes"), nb = document.getElementById("ck-no");
-  if(yb) yb.onclick = ()=>{ S.checkins[dayKey()]="clean"; save(); checkTrophies(); renderHome(); };
+  if(yb) yb.onclick = ()=>{ S.checkins[dayKey()]="clean"; save(); checkTrophies(); if(window.Eggs) Eggs.onClean(); renderHome(); };
   if(nb) nb.onclick = ()=>{
     document.getElementById("lapse-box").innerHTML = card(
       `<h3 style="margin-top:0">${t("d_lapse_t")}</h3><p>${t("d_lapse_d")}</p>
@@ -215,6 +217,7 @@ function renderHome(){
     document.getElementById("lapse-ok").onclick = ()=>{
       const trig = document.getElementById("lapse-trig").value.trim();
       S.checkins[dayKey()]="lapse"; S.lapses.push({d:dayKey(), trig}); save();
+      if(window.Eggs) Eggs.onLapse();
       toast(t("lapse_logged")); renderHome();
     };
   };
@@ -244,6 +247,10 @@ function milestonesHTML(){
 }
 function trophyHTML(tr){
   const won = S.trophiesWon.includes(tr.id);
+  if(tr.hidden && !won){
+    return `<div class="trophy secret"><div class="t-ico">🥚</div>
+      <div class="t-name">???</div><div class="t-desc">${t("tr_secret")}</div></div>`;
+  }
   let sub = tr.desc[S.lang];
   if(!won && tr.need.n) sub = t("tr_locked_n").replace("{n}", fmt(tr.need.n - trophyProgress(tr))) + " · " + sub;
   if(!won && !tr.need.n) sub = `<span class="muted">🔒</span> ` + sub;
@@ -335,6 +342,7 @@ function renderPlan(){
 
 /* ---------------- SOS ---------------- */
 function renderSOS(){
+  if(window.Eggs) Eggs.sosOpen();
   view.innerHTML = `<div class="screen">
     ${card(`<h1>🛟 ${t("s_title")}</h1><p>${t("s_sub")}</p>
       <a class="btn btn-sos" href="#/sos" id="sos-big" style="margin:8px 0">${t("s_resist")}</a>`, "hero")}
@@ -398,7 +406,7 @@ function renderSOSDetail(h){
       `<div class="center" style="font-size:3rem">💧</div><h1 class="center">${t("s_d3t")}</h1>
        <p class="center">${t("s_d3d")}</p>
        <button class="btn btn-primary" id="done">${t("s_resist")}</button>`,"hero")}</div>`;
-    document.getElementById("done").onclick = resisted;
+    document.getElementById("done").onclick = ()=>{ if(window.Eggs) Eggs.water(); resisted(); };
   }
   else if(kind==="sos-buddy"){
     view.innerHTML = `<div class="screen">${card(
@@ -435,7 +443,7 @@ function breathScreen(){
     }
     rd.textContent = "1 / 3"; phase(0);
   };
-  document.getElementById("done").onclick = ()=>{ S.exercises++; save(); checkTrophies(); resisted(); };
+  document.getElementById("done").onclick = ()=>{ S.exercises++; save(); checkTrophies(); if(window.Eggs) Eggs.breath(); resisted(); };
 }
 
 /* ---------------- TRIGGERS ---------------- */
@@ -612,6 +620,7 @@ function renderMenu(){
     ["#/exercises","🏋️","m_exercises","m_exercises_d"],["#/learn","📚","m_learn","m_learn_d"],
     ["#/settings","⚙️","m_settings","m_settings_d"],
   ];
+  if(S.lore && S.lore.length) items.push(["#/lore","✦","m_lore","m_lore_d"]);
   view.innerHTML = `<div class="screen">${card(`<h1>${t("nav_menu")}</h1>`)}
     <div class="menu-list">${items.map(([href,ic,tk,dk])=>`
       <a class="menu-item" href="${href}"><span class="m-ico">${ic}</span><span><b>${t(tk)}</b><small>${t(dk)}</small></span></a>`).join("")}</div>
@@ -643,7 +652,8 @@ function renderSettings(){
       <div style="margin-top:8px"><button class="btn btn-ghost" style="margin-top:0" id="rst">🗑️ ${t("se_reset")}</button></div>`)}
     ${card(`<h3 style="margin-top:0">${t("se_about")}</h3>
       <p><b>Azat Ազատ</b> — ${t("tagline")}.</p>
-      <p class="muted small">${t("se_privacy")}</p>`)}
+      <p class="muted small">${t("se_privacy")}</p>
+      <p class="muted small">v1.0 · <span id="egg-ver" style="cursor:pointer">✦</span> · <span id="egg-nur" style="cursor:pointer;color:#B3001B;font-weight:bold">նուռ</span></p>`)}
   </div>`;
   view.querySelectorAll("[data-l]").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
   document.getElementById("nt-toggle").onclick = async ()=>{

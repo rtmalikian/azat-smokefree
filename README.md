@@ -17,6 +17,7 @@ Nearly **1 in 2 men in Armenia smokes**. Azat helps them quit — or cut down gr
 - **🎯 Trigger mapper** — 8 Armenia-relevant triggers (morning coffee ☕, alcohol & celebrations 🥂, friends, after meals, stress, work breaks, boredom, driving) with coping strategies
 - **🏋️ Exercises** — your reasons, money calculator, values affirmation, support buddy
 - **🏆 Trophy system** — 18 achievements: time, money saved, cravings beaten, streaks — including the 🏔️ Ararat trophy at 100 days
+- **🥚 Hidden lore eggs** — 12 secret trophies woven from Armenian legend (Vahagn the dragon-slayer, Hayk's arrow, Noah's Ark, the duduk…). Tap, type, and explore to find them all — the ✦ Legends codex tracks your discoveries
 - **📚 Learn** — short, honest facts, every claim backed by a linked source
 - **🔔 Reminders** — daily local notifications, milestone pings (no server needed)
 - **🔒 Privacy-first** — no login, no accounts, no tracking. All data stays in your browser.
