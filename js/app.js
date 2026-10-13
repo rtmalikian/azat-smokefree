@@ -154,6 +154,7 @@ function router(){
   else if(base.startsWith("ex-")) renderExerciseDetail(h);
   else if(base.startsWith("sos-")) renderSOSDetail(h);
   else renderHome();
+  if(window.Eggs) Eggs.visit(base);
   window.scrollTo(0,0);
 }
 window.addEventListener("hashchange", router);

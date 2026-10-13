@@ -102,6 +102,12 @@ aragats:{ icon:"⛰️", trophy:"egg_aragats",
         ru:"Арагац, высочайшая гора Армении, — с четырьмя вершинами; легенда гласит, фонарь святого Григория до сих пор горит на её вершине. Ты поднялся на четыре вершины — фонарь зажжён.",
         hy:"Արագածը՝ Հայաստանի ամենաբարձր սարը, չորս գագաթ ունի, ու ավանդությունն ասում ա՝ Սուրբ Գրիգորի լապտերը դեռ վառվում ա նրա գագաթին։ Չորս գագաթ բարձրացար. լապտերը վառված ա։"},
   hint:{en:"Climb four peaks…", ru:"Поднимись на четыре вершины…", hy:"Բարձրացիր չորս գագաթ…"} },
+explorer:{ icon:"🗺️", trophy:"egg_explorer",
+  title:{en:"Anania Shirakatsi", ru:"Анания Ширакаци", hy:"Անանիա Շիրակացի"},
+  text:{en:"In the 7th century, the Armenian scholar Anania Shirakatsi traveled the known world and mapped it in his Ashkharhatsuyts — the Geography. You've mapped the whole of Azat now. Every corner explored.",
+        ru:"В VII веке армянский учёный Анания Ширакаци объехал известный мир и нанёс его на карту в своём «Ашхарацуйце» — Географии. Теперь ты нанёс на карту весь Azat. Каждый уголок исследован.",
+        hy:"7-րդ դարում հայ գիտնական Անանիա Շիրակացին ճամփորդեց հայտնի աշխարհով ու քարտեզի վրա դրեց իր «Աշխարհացույց»-ում։ Դու էլ հիմա ամբողջ Ազատը քարտեզի վրա դրեցիր։ Ամեն անկյուն ուսումնասիրված ա։"},
+  hint:{en:"Leave no corner unmapped…", ru:"Не оставь ни одного уголка без карты…", hy:"Ոչ մի անկյուն առանց քարտեզ չթողնես…"} },
 };
 
 const PROVERBS = [
@@ -114,6 +120,9 @@ const PROVERBS = [
 
 /* ---------- engine ---------- */
 function closeEgg(){ const m = document.getElementById("egg-modal"); if(m) m.remove(); }
+
+/* core app sections — visiting all of them unlocks the explorer egg */
+const EGG_SECTIONS = ["home","plan","sos","trophies","menu","learn","exercises","triggers","settings","about"];
 
 const Eggs = {
   st(){ S.egg = S.egg || {}; return S.egg; },
@@ -174,6 +183,16 @@ const Eggs = {
   onTrophies(){
     if(!S.lore.includes("aragats") && S.trophiesWon.length>=4) this.discover("aragats");
   },
+  /* explorer egg: visit every core section */
+  visit(route){
+    let base = route || "";
+    if(base.startsWith("ex-")) base = "exercises";
+    else if(base.startsWith("sos-")) base = "sos";
+    if(!EGG_SECTIONS.includes(base)) return;
+    const e = this.st(); e.visited = e.visited || {};
+    if(!e.visited[base]){ e.visited[base] = 1; save(); }
+    if(!S.lore.includes("explorer") && EGG_SECTIONS.every(s=>e.visited[s])) this.discover("explorer");
+  },
   midnight(){
     if(new Date().getHours()!==0) return;
     const e = this.st(), k = dayKey();
@@ -227,6 +246,7 @@ const Eggs = {
     }).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
     /* route + midnight check */
     if(typeof routes !== "undefined") routes.lore = ()=>this.renderCodex();
+    this.visit((location.hash||"#/home").replace("#/","").split("/")[0]);
     this.midnight();
   }
 };

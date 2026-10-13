@@ -275,6 +275,9 @@ const TROPHIES = [
   { id:"egg_aragats", icon:"⛰️", hidden:true, need:{type:"egg"},
     name:{en:"Aragats", ru:"Арагац", hy:"Արագած"},
     desc:{en:"Four peaks climbed.", ru:"Четыре вершины пройдены.", hy:"Չորս գագաթ բարձրացար։"} },
+  { id:"egg_explorer", icon:"🗺️", hidden:true, need:{type:"egg"},
+    name:{en:"The Geographer", ru:"Географ", hy:"Աշխարհագիր"},
+    desc:{en:"You explored every section.", ru:"Ты исследовал все разделы.", hy:"Բոլոր բաժիններն ուսումնասիրեցիր։"} },
 ];
 
 /* ---------- health milestones (WHO / CDC) ---------- */
